@@ -1,0 +1,30 @@
+services:
+  web-dmz:
+    image: nginx:stable
+    container_name: web-dmz
+    ports:
+      - "8081:80"
+    networks:
+      dmz-net:
+        ipv4_address: 172.20.1.10
+
+  dns-lan:
+    build: ./docker/dns-lan
+    container_name: dns-lan
+    networks:
+      lan-net:
+        ipv4_address: 172.20.2.10
+
+networks:
+  dmz-net:
+    ipam:
+      config:
+        - subnet: 172.20.1.0/24
+  lan-net:
+    ipam:
+      config:
+        - subnet: 172.20.2.0/24
+  mgmt-net:
+    ipam:
+      config:
+        - subnet: 172.20.3.0/24
