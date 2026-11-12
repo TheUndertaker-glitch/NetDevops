@@ -1,0 +1,7 @@
+---
+- name: Premier test NetDevOps
+  hosts: docker_host
+  tasks:
+    - name: Afficher le nom de la machine
+      ansible.builtin.debug:
+        msg: "Configuration de {{ ansible_hostname }}"
