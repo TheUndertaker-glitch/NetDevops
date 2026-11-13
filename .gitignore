@@ -1,0 +1,6 @@
+.vault_pass
+*.retry
+*.pyc
+__pycache__/
+reports/
+.env
